@@ -277,8 +277,3 @@ rm -rf venv/
 - Delivered a real-time **Streamlit analytics dashboard** (revenue trends, funnel analysis, product performance) querying the Gold layer directly
 - Containerized the full stack with **Docker Compose** — one-command setup for reproducible local deployment
 
----
-
-## License
-
-MIT — free to use, modify, and add to your portfolio.
