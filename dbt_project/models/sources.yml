@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    description: "Raw ingested data from Kafka via PySpark"
+    tables:
+      - name: raw_events
+        description: "Raw clickstream events"
+      - name: raw_orders
+        description: "Raw order records"
+
+  - name: silver
+    schema: silver
+    description: "Cleaned and conformed data"
+    tables:
+      - name: events
+        description: "Cleaned event data"
+      - name: orders
+        description: "Cleaned order data"
+      - name: users
+        description: "User dimension base"

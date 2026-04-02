@@ -1,0 +1,68 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Fact table for all orders with enriched metrics"
+    columns:
+      - name: order_id
+        description: "Unique order identifier"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['placed', 'confirmed', 'shipped', 'delivered',
+                       'cancelled', 'returned']
+      - name: total_amount
+        tests:
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+
+  - name: dim_users
+    description: "User dimension with aggregated behavior metrics"
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: first_seen
+        tests:
+          - not_null
+
+  - name: agg_daily_revenue
+    description: "Daily revenue aggregates for the Gold layer"
+    columns:
+      - name: report_date
+        tests:
+          - unique
+          - not_null
+      - name: gross_revenue
+        tests:
+          - not_null
+
+  - name: agg_product_funnel
+    description: "Product-level funnel metrics: views → cart → purchase"
+    columns:
+      - name: report_date
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+
+  - name: agg_category_summary
+    description: "Category-level performance summary"
+    columns:
+      - name: report_date
+        tests:
+          - not_null
+      - name: category
+        tests:
+          - not_null

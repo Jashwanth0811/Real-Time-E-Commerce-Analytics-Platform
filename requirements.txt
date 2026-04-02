@@ -1,0 +1,17 @@
+# Core pipeline dependencies
+kafka-python==2.0.2
+faker==22.6.0
+psycopg2-binary==2.9.9
+pandas==2.2.1
+python-dotenv==1.0.1
+
+# dbt
+dbt-postgres==1.7.9
+dbt-core==1.7.9
+
+# Spark (optional — only needed for spark_jobs/)
+# pyspark==3.5.1
+
+# Dashboard
+streamlit==1.32.0
+plotly==5.20.0
